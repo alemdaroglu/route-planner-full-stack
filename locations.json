@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Taksim",
+        "country": "TR",
+        "city": "Istanbul",
+        "locationCode": "TAKSIM"
+    },
+    {
+        "name": "Atakule",
+        "country": "TR",
+        "city": "Ankara",
+        "locationCode": "ATAKULE"
+    },
+    {
+        "name": "Samsun Meydan",
+        "country": "TR",
+        "city": "Samsun",
+        "locationCode": "MEYDAN"
+    },
+    {
+        "name": "Antalya",
+        "country": "TR",
+        "city": "Antalya",
+        "locationCode": "ANTALYA"
+    },
+    {
+        "name": "Kemer",
+        "country": "TR",
+        "city": "Antalya",
+        "locationCode": "KEMER"
+    },
+    {
+        "name": "Bodrum",
+        "country": "TR",
+        "city": "Mugla",
+        "locationCode": "BODRUM"
+    },
+    {
+        "name": "Datca",
+        "country": "TR",
+        "city": "Mugla",
+        "locationCode": "DATCA"
+    },
+    {
+        "name": "Mugla",
+        "country": "TR",
+        "city": "Mugla",
+        "locationCode": "MUGLA"
+    },
+    {
+        "name": "Izmir",
+        "country": "TR",
+        "city": "Izmir",
+        "locationCode": "IZMIR"
+    },
+    {
+        "name": "Istanbul",
+        "country": "TR",
+        "city": "Istanbul",
+        "locationCode": "ISTANBUL"
+    },
+    {
+        "name": "Besiktas",
+        "country": "TR",
+        "city": "Istanbul",
+        "locationCode": "BESIKTAS"
+    },
+    {
+        "name": "Cadde",
+        "country": "TR",
+        "city": "Istanbul",
+        "locationCode": "CADDE"
+    },
+    {
+        "name": "Istanbul Airport",
+        "country": "TR",
+        "city": "Istanbul",
+        "locationCode": "IST"
+    },
+    {
+        "name": "Sabiha Gokcen Airport",
+        "country": "TR",
+        "city": "Istanbul",
+        "locationCode": "SAW"
+    },
+    {
+        "name": "Esenboga Airport",
+        "country": "TR",
+        "city": "Ankara",
+        "locationCode": "ESB"
+    },
+    {
+        "name": "Etimesgut Airport",
+        "country": "TR",
+        "city": "Ankara",
+        "locationCode": "ANK"
+    },
+    {
+        "name": "Dalaman Airport",
+        "country": "TR",
+        "city": "Mugla",
+        "locationCode": "DLM"
+    },
+    {
+        "name": "Antalya Airport",
+        "country": "TR",
+        "city": "Antalya",
+        "locationCode": "AYT"
+    },
+    {
+        "name": "Adnan Menderes Airport",
+        "country": "TR",
+        "city": "Izmir",
+        "locationCode": "ADB"
+    },
+    {
+        "name": "Carsamba Airport",
+        "country": "TR",
+        "city": "Samsun",
+        "locationCode": "SZF"
+    }
+]

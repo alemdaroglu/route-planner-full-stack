@@ -1,0 +1,522 @@
+[
+    {
+        "originLocationId": 1,
+        "destinationLocationId": 11,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 11,
+        "destinationLocationId": 1,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 1,
+        "destinationLocationId": 13,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 1,
+        "destinationLocationId": 13,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 1,
+        "destinationLocationId": 13,
+        "transportationType": "SUBWAY",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 1,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 1,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 1,
+        "transportationType": "SUBWAY",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 1,
+        "destinationLocationId": 14,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 1,
+        "destinationLocationId": 14,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 1,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 1,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 2,
+        "destinationLocationId": 15,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 2,
+        "destinationLocationId": 15,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 2,
+        "destinationLocationId": 16,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 2,
+        "destinationLocationId": 16,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 15,
+        "destinationLocationId": 2,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 15,
+        "destinationLocationId": 2,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 16,
+        "destinationLocationId": 2,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 16,
+        "destinationLocationId": 2,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 4,
+        "destinationLocationId": 17,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 4,
+        "destinationLocationId": 18,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 4,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 4,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 5,
+        "destinationLocationId": 17,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 5,
+        "destinationLocationId": 18,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 5,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 5,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 6,
+        "destinationLocationId": 17,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 6,
+        "destinationLocationId": 18,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 6,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 6,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 7,
+        "destinationLocationId": 17,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 7,
+        "destinationLocationId": 18,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 7,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 7,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 8,
+        "destinationLocationId": 17,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 8,
+        "destinationLocationId": 18,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 8,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 8,
+        "transportationType": "UBER",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 9,
+        "destinationLocationId": 19,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 19,
+        "destinationLocationId": 9,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 3,
+        "destinationLocationId": 20,
+        "transportationType": "BUS",
+        "operatingDays": [1,3,6,7]
+    },
+    {
+        "originLocationId": 20,
+        "destinationLocationId": 3,
+        "transportationType": "BUS",
+        "operatingDays": [1,3,6,7]
+    },
+    {
+        "originLocationId": 10,
+        "destinationLocationId": 13,
+        "transportationType": "BUS",
+        "operatingDays": [6,7]
+    },
+    {
+        "originLocationId": 10,
+        "destinationLocationId": 14,
+        "transportationType": "BUS",
+        "operatingDays": [6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 10,
+        "transportationType": "BUS",
+        "operatingDays": [6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 10,
+        "transportationType": "BUS",
+        "operatingDays": [6,7]
+    },
+    {
+        "originLocationId": 11,
+        "destinationLocationId": 13,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 11,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,6,7]
+    },
+    {
+        "originLocationId": 11,
+        "destinationLocationId": 14,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 11,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,6,7]
+    },
+    {
+        "originLocationId": 12,
+        "destinationLocationId": 14,
+        "transportationType": "BUS",
+        "operatingDays": [3,5,6,7]
+    },
+    {
+        "originLocationId": 12,
+        "destinationLocationId": 14,
+        "transportationType": "SUBWAY",
+        "operatingDays": [1,2,3,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 12,
+        "transportationType": "BUS",
+        "operatingDays": [3,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 12,
+        "transportationType": "SUBWAY",
+        "operatingDays": [1,2,5,6,7]
+    },
+	{
+        "originLocationId": 13,
+        "destinationLocationId": 15,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 15,
+        "destinationLocationId": 13,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 16,
+        "transportationType": "FLIGHT",
+        "operatingDays": [5]
+    },
+    {
+        "originLocationId": 16,
+        "destinationLocationId": 13,
+        "transportationType": "FLIGHT",
+        "operatingDays": [5]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 15,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 15,
+        "destinationLocationId": 14,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 16,
+        "transportationType": "FLIGHT",
+        "operatingDays": [7]
+    },
+    {
+        "originLocationId": 16,
+        "destinationLocationId": 14,
+        "transportationType": "FLIGHT",
+        "operatingDays": [7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 17,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 13,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 17,
+        "transportationType": "FLIGHT",
+        "operatingDays": [5,6,7]
+    },
+    {
+        "originLocationId": 17,
+        "destinationLocationId": 14,
+        "transportationType": "FLIGHT",
+        "operatingDays": [5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 18,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 13,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 18,
+        "transportationType": "FLIGHT",
+        "operatingDays": [5,6,7]
+    },
+    {
+        "originLocationId": 18,
+        "destinationLocationId": 14,
+        "transportationType": "FLIGHT",
+        "operatingDays": [5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 19,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 19,
+        "destinationLocationId": 13,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 19,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 19,
+        "destinationLocationId": 14,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 20,
+        "transportationType": "FLIGHT",
+        "operatingDays": [6,7]
+    },
+    {
+        "originLocationId": 20,
+        "destinationLocationId": 13,
+        "transportationType": "FLIGHT",
+        "operatingDays": [6,7]
+    },
+    
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 20,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1]
+    },
+    {
+        "originLocationId": 20,
+        "destinationLocationId": 14,
+        "transportationType": "FLIGHT",
+        "operatingDays": [1]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 14,
+        "transportationType": "UBER",
+        "operatingDays": [5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 13,
+        "transportationType": "UBER",
+        "operatingDays": [5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 14,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 13,
+        "transportationType": "BUS",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 13,
+        "destinationLocationId": 14,
+        "transportationType": "SUBWAY",
+        "operatingDays": [1,2,3,4,5,6,7]
+    },
+    {
+        "originLocationId": 14,
+        "destinationLocationId": 13,
+        "transportationType": "SUBWAY",
+        "operatingDays": [1,2,3,4,5,6,7]
+    }
+]

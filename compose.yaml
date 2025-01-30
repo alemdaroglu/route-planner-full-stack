@@ -1,0 +1,47 @@
+services:
+  db:
+    image: 'postgres:latest'
+    env_file:
+      - .env
+    ports:
+      - '5432:5432'
+    volumes:
+      - app-db-data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - '5050:80'
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - app-pgadmin-data:/var/lib/pgadmin
+  redis:
+    image: 'redis:latest'
+    ports:
+      - '6379:6379'
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+      - redis
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_API_URL=http://localhost:8080/api
+volumes:
+  app-db-data:
+  app-pgadmin-data:

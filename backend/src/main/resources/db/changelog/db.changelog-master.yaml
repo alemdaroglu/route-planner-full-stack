@@ -1,0 +1,152 @@
+databaseChangeLog:
+- changeSet:
+    id: 1738144486967-1
+    author: Arda (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: transportation_pkey
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: transportation_type
+            type: VARCHAR(255)
+        - column:
+            name: destination_location_id
+            type: BIGINT
+        - column:
+            name: origin_location_id
+            type: BIGINT
+        tableName: transportation
+- changeSet:
+    id: 1738144486967-2
+    author: Arda (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: location_pkey
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: city
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: country
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: location_code
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: location
+- changeSet:
+    id: 1738144486967-3
+    author: Arda (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: location_code
+        constraintName: ukmar27svme9bekuv7b87jin6sv
+        tableName: location
+- changeSet:
+    id: 1738144486967-4
+    author: Arda (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: transportation_id
+            type: BIGINT
+        - column:
+            name: day_of_week
+            type: INTEGER
+        tableName: transportation_operating_days
+- changeSet:
+    id: 1738144486967-5
+    author: Arda (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: destination_location_id
+        baseTableName: transportation
+        constraintName: fk4t83xca3e8j5mi423jxue52py
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: location
+        validate: true
+- changeSet:
+    id: 1738144486967-6
+    author: Arda (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: transportation_id
+        baseTableName: transportation_operating_days
+        constraintName: fk8artkotcvq0q12nw7b1wclpet
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: transportation
+        validate: true
+- changeSet:
+    id: 1738144486967-7
+    author: Arda (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: origin_location_id
+        baseTableName: transportation
+        constraintName: fki3i88s0fbdddcr28vebk0hfav
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: location
+        validate: true
+- include:
+      file: db/changelog/001-create-users-table.yaml

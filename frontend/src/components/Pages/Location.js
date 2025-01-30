@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchPaginatedData } from '../../utils/api';
+import { locationAPI } from '../../services/api';
 
 const Location = () => {
   const [locations, setLocations] = useState([]);
@@ -22,9 +22,9 @@ const Location = () => {
   const fetchLocations = async () => {
     try {
       setLoading(true);
-      const data = await fetchPaginatedData('locations', currentPage, pageSize, sortBy, ascending);
-      setLocations(data.content);
-      setTotalPages(data.totalPages);
+      const response = await locationAPI.getAllPaginated(currentPage, pageSize, sortBy, ascending);
+      setLocations(response.data.content);
+      setTotalPages(response.data.totalPages);
     } catch (err) {
       console.error('Failed to fetch locations:', err);
     } finally {
@@ -36,18 +36,9 @@ const Location = () => {
   const createLocation = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/locations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        setFormData({ name: '', country: '', city: '', locationCode: '' });
-        fetchLocations();
-      }
+      await locationAPI.create(formData);
+      setFormData({ name: '', country: '', city: '', locationCode: '' });
+      fetchLocations();
     } catch (err) {
       setError('Failed to create location');
     }
@@ -57,20 +48,11 @@ const Location = () => {
   const updateLocation = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/api/locations/${selectedLocation.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        setIsEditing(false);
-        setSelectedLocation(null);
-        setFormData({ name: '', country: '', city: '', locationCode: '' });
-        fetchLocations();
-      }
+      await locationAPI.update(selectedLocation.id, formData);
+      setIsEditing(false);
+      setSelectedLocation(null);
+      setFormData({ name: '', country: '', city: '', locationCode: '' });
+      fetchLocations();
     } catch (err) {
       setError('Failed to update location');
     }
@@ -80,15 +62,8 @@ const Location = () => {
   const deleteLocation = async (id) => {
     if (window.confirm('Are you sure you want to delete this location?')) {
       try {
-        const response = await fetch(`http://localhost:8080/api/locations/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        });
-        if (response.ok) {
-          fetchLocations();
-        }
+        await locationAPI.delete(id);
+        fetchLocations();
       } catch (err) {
         setError('Failed to delete location');
       }

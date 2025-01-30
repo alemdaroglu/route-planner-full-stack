@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllLocations, fetchPaginatedData } from '../../utils/api';
+import { transportationAPI, locationAPI } from '../../services/api';
 
 const Transportation = () => {
   const [transportations, setTransportations] = useState([]);
@@ -32,18 +32,32 @@ const Transportation = () => {
     operatingDays: [1, 2, 3, 4, 5, 6, 7]  // All days checked by default
   });
 
+  // Sort locations by locationCode length and then alphabetically
+  const sortedLocations = React.useMemo(() => {
+    if (!Array.isArray(locations)) return [];
+    
+    return [...locations].sort((a, b) => {
+      // First compare by length
+      if (a.locationCode.length !== b.locationCode.length) {
+        return a.locationCode.length - b.locationCode.length;
+      }
+      // If lengths are equal, compare alphabetically
+      return a.locationCode.localeCompare(b.locationCode);
+    });
+  }, [locations]);
+
   // Fetch locations for dropdowns
   const fetchLocations = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/locations', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      const data = await response.json();
-      setLocations(data);
+      const response = await locationAPI.getAll();
+      // Ensure we're setting an array
+      const locationData = Array.isArray(response.data) ? response.data : 
+                         (response.data?.content || []);
+      setLocations(locationData);
     } catch (err) {
+      console.error('Failed to fetch locations:', err);
       setError('Failed to fetch locations');
+      setLocations([]); // Set empty array on error
     }
   };
 
@@ -51,9 +65,9 @@ const Transportation = () => {
   const fetchTransportations = async () => {
     try {
       setLoading(true);
-      const data = await fetchPaginatedData('transportations', currentPage, pageSize, sortBy, ascending);
-      setTransportations(data.content);
-      setTotalPages(data.totalPages);
+      const response = await transportationAPI.getAllPaginated(currentPage, pageSize, sortBy, ascending);
+      setTransportations(response.data.content);
+      setTotalPages(response.data.totalPages);
     } catch (err) {
       console.error('Failed to fetch transportations:', err);
     } finally {
@@ -65,18 +79,9 @@ const Transportation = () => {
   const createTransportation = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/transportations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        resetForm();
-        fetchTransportations();
-      }
+      await transportationAPI.create(formData);
+      resetForm();
+      fetchTransportations();
     } catch (err) {
       setError('Failed to create transportation');
     }
@@ -86,18 +91,9 @@ const Transportation = () => {
   const updateTransportation = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/api/transportations/${selectedTransportation.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        resetForm();
-        fetchTransportations();
-      }
+      await transportationAPI.update(selectedTransportation.id, formData);
+      resetForm();
+      fetchTransportations();
     } catch (err) {
       setError('Failed to update transportation');
     }
@@ -107,15 +103,8 @@ const Transportation = () => {
   const deleteTransportation = async (id) => {
     if (window.confirm('Are you sure you want to delete this transportation?')) {
       try {
-        const response = await fetch(`http://localhost:8080/api/transportations/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        });
-        if (response.ok) {
-          fetchTransportations();
-        }
+        await transportationAPI.delete(id);
+        fetchTransportations();
       } catch (err) {
         setError('Failed to delete transportation');
       }
@@ -165,21 +154,20 @@ const Transportation = () => {
     });
   };
 
-  // Sort locations by locationCode length and then alphabetically
-  const sortedLocations = [...locations].sort((a, b) => {
-    // First compare by length
-    if (a.locationCode.length !== b.locationCode.length) {
-      return a.locationCode.length - b.locationCode.length;
-    }
-    // If lengths are equal, compare alphabetically
-    return a.locationCode.localeCompare(b.locationCode);
-  });
-
   // Load data on component mount
   useEffect(() => {
     const loadLocations = async () => {
-      const allLocations = await fetchAllLocations();
-      setLocations(allLocations);
+      try {
+        const response = await locationAPI.getAll();
+        // Ensure we're setting an array
+        const locationData = Array.isArray(response.data) ? response.data : 
+                           (response.data?.content || []);
+        setLocations(locationData);
+      } catch (err) {
+        console.error('Failed to fetch locations:', err);
+        setError('Failed to fetch locations');
+        setLocations([]); // Set empty array on error
+      }
     };
     loadLocations();
   }, []);

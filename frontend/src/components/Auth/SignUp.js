@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { authAPI } from '../../services/api';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -12,23 +13,11 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        // Redirect to signin page after successful signup
-        navigate('/signin');
-      } else {
-        const data = await response.json();
-        setError(data.message || 'Failed to sign up');
-      }
+      await authAPI.register(formData);
+      // Redirect to signin page after successful signup
+      navigate('/signin');
     } catch (err) {
-      setError('Failed to connect to the server');
+      setError(err.response?.data?.message || 'Failed to sign up');
     }
   };
 

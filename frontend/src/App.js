@@ -6,6 +6,7 @@ import Location from './components/Pages/Location';
 import Transportation from './components/Pages/Transportation';
 import RouteFinder from './components/Pages/RouteFinder';
 import MainLayout from './components/Layout/MainLayout';
+import { authAPI } from './services/api';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -15,18 +16,9 @@ function App() {
   const fetchUserInfo = async () => {
     if (localStorage.getItem('token')) {
       try {
-        const response = await fetch('http://localhost:8080/api/auth/me', {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          setUserRoles(data.roles);
-          return true;
-        }
-        return false;
+        const response = await authAPI.getCurrentUser();
+        setUserRoles(response.data.roles);
+        return true;
       } catch (err) {
         console.error('Failed to fetch user info');
         return false;

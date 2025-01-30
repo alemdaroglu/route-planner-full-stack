@@ -3,7 +3,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { fetchAllLocations } from '../../utils/api';
+import { routeAPI, fetchAllLocations } from '../../services/api';
+
 
 const RouteFinder = () => {
   const [locations, setLocations] = useState([]);
@@ -28,21 +29,14 @@ const RouteFinder = () => {
   const handleSearch = async () => {
     try {
       const formattedDate = searchParams.date.format('YYYY-MM-DD');
-      const queryParams = new URLSearchParams({
-        origin: searchParams.origin,
-        destination: searchParams.destination,
-        date: formattedDate
-      });
-
-      const response = await fetch(`http://localhost:8080/api/routes?${queryParams}`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      
-      const data = await response.json();
-      // Sort routes by number of legs (stops - 1)
-      const sortedRoutes = [...data].sort((a, b) => (a.stops.length - 1) - (b.stops.length - 1));
+      const response = await routeAPI.search(
+        searchParams.origin,
+        searchParams.destination,
+        formattedDate
+      );
+      const sortedRoutes = [...response.data].sort((a, b) => 
+        (a.stops.length - 1) - (b.stops.length - 1)
+      );
       setRoutes(sortedRoutes);
       setError('');
     } catch (err) {

@@ -21,6 +21,10 @@ Route Planner is a full-stack web application that allows users to find availabl
 - Check Swagger UI from http://localhost:8080/swagger-ui to get API specs
 - PGAdmin is set up at http://localhost:5050/. First time you go there, you'll need to set up the db connection. Select "Add New Server" -> Under "General", enter "db" for "Name", switch to "Connection" tab, "Host name" is "db", "Username" is "admin", "Password" is "secret". Then hit "Save".
 
+### Tips
+- After registering your first user, you should update it from PGAdmin UI to set its role as "ADMIN", to fully access the API. Other users can stay as "AGENCY".
+- You can use the requests in json files in the repo root to bulk insert locations and transportations, if you want. (POST api/locations/bulk and POST api/transportations/bulk)
+
 
 ## Tech Stack
 ### Backend:
@@ -36,4 +40,7 @@ Route Planner is a full-stack web application that allows users to find availabl
 - Axios (for API requests)
 - Tailwind CSS
 
-
+### Backend Tests:
+- Tests are skipped during builds due to avoid nested containerization
+- It should be configured as another step in CI/CD pipelines
+- You can execute "./mvnw test" in the "/backend" directory to manually run the unit tests

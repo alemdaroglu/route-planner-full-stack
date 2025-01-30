@@ -11,15 +11,18 @@ Route Planner is a full-stack web application that allows users to find availabl
 
 ## Quick Start
 ### Prerequisites
-- Docker Engine installed on your local machine
+- Docker Engine and Docker Compose installed on your local machine (Docker Desktop includes both of them)
 
 ### Run
 - Clone the repo to a local directory
 - Run "docker-compose up -d" in the project root (make sure Docker Engine is up and running)
-- That's it: You can check the UI from http://localhost:3000. 
-- You can directly send requests to http://localhost:8080/api if you want to.
+- Once the containers are up, you can open your browser and access the UI at http://localhost:3000.
+- You can directly send requests to the backend API at http://localhost:8080/api if you want to.
 - Check Swagger UI from http://localhost:8080/swagger-ui to get API specs
-- PGAdmin is set up at http://localhost:5050/. First time you go there, you'll need to set up the db connection. Select "Add New Server" -> Under "General", enter "db" for "Name", switch to "Connection" tab, "Host name" is "db", "Username" is "admin", "Password" is "secret". Then hit "Save".
+- PGAdmin is set up at http://localhost:5050/. 
+
+### PGAdmin Connection Setup
+- After accessing the PGAdmin at http://localhost:5050/, enter "app@test.com" as Username and "secret" as Password. Then in the main page, select "Add New Server" -> Under "General" tab, enter "db" for "Name", switch to "Connection" tab, "Host name" is "db", "Username" is "admin", "Password" is "secret". Then hit "Save".
 
 ### Tips
 - After registering your first user, you should update it from PGAdmin UI to set its role as "ADMIN", to fully access the API. Other users can stay as "AGENCY".
@@ -29,9 +32,10 @@ Route Planner is a full-stack web application that allows users to find availabl
 ## Tech Stack
 ### Backend:
 - Java + Spring Boot
-- PostgreSQL (with Testcontainers for testing)
+- PostgreSQL (with Testcontainers for unit testing)
 - Spring Security (JWT authentication)
 - Hibernate (JPA for database interactions)
+- Liquibase (DB Migration Management)
 - Maven
 
 ### Frontend:
@@ -42,6 +46,10 @@ Route Planner is a full-stack web application that allows users to find availabl
 
 ## Tests:
 ### Backend:
-- Tests are skipped during builds due to avoid nested containerization
-- It should be configured as another step in CI/CD pipelines
-- You can execute "./mvnw test" in the "/backend" directory to manually run the unit tests
+- Tests are not executed during the Docker build process to avoid nested containerization.
+- You can manually run the tests by executing ./mvnw test in the /backend directory.
+- Unit tests should be configured as prerequisite step before the actual build in CI/CD pipelines.
+
+
+## Concessions:
+- For the purpose of a quick start and as a proof of concept, plain-text passwords and keys are used in the .env and application.properties files. This is not secure and should be addressed immediately in any production-level application derived from this project.

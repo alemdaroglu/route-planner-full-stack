@@ -31,7 +31,10 @@ public class SecurityConfig {
     private final CustomUserDetailsService userDetailsService;
     private final AuthEntryPointJwt unauthorizedHandler;
 
-    private static final String[] WHITE_LIST_URL = {"/api/auth/login", "/api/auth/signup"};
+    private static final String[] WHITE_LIST_URL = {
+            "/api/auth/login", "/api/auth/signup",
+            "/swagger-ui/**", "/v3/api-docs*/**",
+            "/api-docs*/**"};
 
     public SecurityConfig(AuthTokenFilter authTokenFilter, CustomUserDetailsService userDetailsService, AuthEntryPointJwt unauthorizedHandler) {
         this.authTokenFilter = authTokenFilter;

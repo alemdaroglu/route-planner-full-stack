@@ -11,7 +11,7 @@ Route Planner is a full-stack web application that allows users to find availabl
 
 ## Quick Start
 ### Prerequisites
-- Docker Engine
+- Docker Engine installed on your local machine
 
 ### Run
 - Clone the repo to a local directory
@@ -40,7 +40,8 @@ Route Planner is a full-stack web application that allows users to find availabl
 - Axios (for API requests)
 - Tailwind CSS
 
-### Backend Tests:
+## Tests:
+### Backend:
 - Tests are skipped during builds due to avoid nested containerization
 - It should be configured as another step in CI/CD pipelines
 - You can execute "./mvnw test" in the "/backend" directory to manually run the unit tests

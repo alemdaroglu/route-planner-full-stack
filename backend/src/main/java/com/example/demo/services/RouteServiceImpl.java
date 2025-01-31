@@ -106,7 +106,8 @@ public class RouteServiceImpl implements RouteService {
         if (!beforeFlight) {
             for (Transportation usableFlight : usableFlights) {
                 for (Transportation afterTransfer : afterTransfers) {
-                    if (usableFlight.getDestinationLocation().getId().equals(afterTransfer.getOriginLocation().getId())){
+                    if (usableFlight.getDestinationLocation().getId().equals(afterTransfer.getOriginLocation().getId())
+                    && usableFlight.getOriginLocation().getId().equals(originLocation.getId())){
                         StopDTO stop1 = new StopDTO();
                         stop1.setLocation(LocationMapper.toDto(usableFlight.getOriginLocation()));
                         stop1.setStopNumber(1);
@@ -126,7 +127,8 @@ public class RouteServiceImpl implements RouteService {
         if (!afterFlight) {
             for (Transportation usableFlight : usableFlights) {
                 for (Transportation beforeTransfer : beforeTransfers) {
-                    if (usableFlight.getOriginLocation().getId().equals(beforeTransfer.getDestinationLocation().getId())){
+                    if (usableFlight.getOriginLocation().getId().equals(beforeTransfer.getDestinationLocation().getId())
+                            && usableFlight.getDestinationLocation().getId().equals(destinationLocation.getId())){
                         StopDTO stop1 = new StopDTO();
                         stop1.setLocation(LocationMapper.toDto(beforeTransfer.getOriginLocation()));
                         stop1.setStopNumber(1);

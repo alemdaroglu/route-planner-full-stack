@@ -16,6 +16,7 @@ const RouteFinder = () => {
     destination: '',
     date: dayjs()
   });
+  const [hasSearched, setHasSearched] = useState(false);
 
   // Fetch locations for dropdowns
   useEffect(() => {
@@ -28,6 +29,7 @@ const RouteFinder = () => {
 
   const handleSearch = async () => {
     try {
+      setHasSearched(true);
       const formattedDate = searchParams.date.format('YYYY-MM-DD');
       const response = await routeAPI.search(
         searchParams.origin,
@@ -55,6 +57,17 @@ const RouteFinder = () => {
 
   const handleRouteClick = (route) => {
     setSelectedRoute(route);
+  };
+
+  // Helper function to get location name from code
+  const getLocationName = (locationCode) => {
+    const location = locations.find(loc => loc.locationCode === locationCode);
+    return location ? `${location.name} (${location.locationCode})` : locationCode;
+  };
+
+  // Helper function to format date for display
+  const formatDateForDisplay = (date) => {
+    return date.format('DD-MM-YYYY');
   };
 
   return (
@@ -101,14 +114,14 @@ const RouteFinder = () => {
           </select>
         </div>
 
-        {/* Date Picker */}
+        {/* Date Picker with updated format */}
         <div style={{ flex: 1 }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Travel Date</label>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               value={searchParams.date}
               onChange={(newValue) => setSearchParams(prev => ({ ...prev, date: newValue }))}
-              format="YYYY-MM-DD"
+              format="DD-MM-YYYY"
               slotProps={{ textField: { style: { width: '100%' } } }}
             />
           </LocalizationProvider>
@@ -135,6 +148,20 @@ const RouteFinder = () => {
 
       {error && (
         <div style={{ color: 'red', marginBottom: '20px' }}>{error}</div>
+      )}
+
+      {/* Enhanced results summary with date */}
+      {hasSearched && (
+        <div style={{ 
+          marginBottom: '20px',
+          padding: '10px',
+          backgroundColor: '#f8f9fa',
+          borderRadius: '4px'
+        }}>
+          <div>From {getLocationName(searchParams.origin)} to {getLocationName(searchParams.destination)}</div>
+          <div>Date: {formatDateForDisplay(searchParams.date)}</div>
+          <div style={{ marginTop: '8px' }}>Routes Found: {routes.length}</div>
+        </div>
       )}
 
       {/* Routes Table */}

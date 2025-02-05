@@ -2,58 +2,60 @@ package com.example.demo.dtos;
 
 import com.example.demo.enums.TransportationType;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-
-import java.time.DayOfWeek;
 import java.util.Set;
 
 public class TransportationCreateDTO {
-    @NotNull(message = "Origin Location ID is required")
-    private Long originLocationId;
-    @NotNull(message = "Destination Location ID is required")
-    private Long destinationLocationId;
-    @NotNull
-    private TransportationType transportationType;
-    private Set<Integer> operatingDays;
+  @NotNull(message = "Origin Location ID is required")
+  private Long originLocationId;
 
-    public TransportationCreateDTO() {}
+  @NotNull(message = "Destination Location ID is required")
+  private Long destinationLocationId;
 
-    public TransportationCreateDTO(Long originLocationId, Long destinationLocationId, TransportationType transportationType, Set<Integer> operatingDays) {
-        this.originLocationId = originLocationId;
-        this.destinationLocationId = destinationLocationId;
-        this.transportationType = transportationType;
-        this.operatingDays = operatingDays;
-    }
+  @NotNull private TransportationType transportationType;
+  private Set<Integer> operatingDays;
 
-    public Long getOriginLocationId() {
-        return originLocationId;
-    }
+  public TransportationCreateDTO() {}
 
-    public void setOriginLocationId(Long originLocationId) {
-        this.originLocationId = originLocationId;
-    }
+  public TransportationCreateDTO(
+      Long originLocationId,
+      Long destinationLocationId,
+      TransportationType transportationType,
+      Set<Integer> operatingDays) {
+    this.originLocationId = originLocationId;
+    this.destinationLocationId = destinationLocationId;
+    this.transportationType = transportationType;
+    this.operatingDays = operatingDays;
+  }
 
-    public Long getDestinationLocationId() {
-        return destinationLocationId;
-    }
+  public Long getOriginLocationId() {
+    return originLocationId;
+  }
 
-    public void setDestinationLocationId(Long destinationLocationId) {
-        this.destinationLocationId = destinationLocationId;
-    }
+  public void setOriginLocationId(Long originLocationId) {
+    this.originLocationId = originLocationId;
+  }
 
-    public TransportationType getTransportationType() {
-        return transportationType;
-    }
+  public Long getDestinationLocationId() {
+    return destinationLocationId;
+  }
 
-    public void setTransportationType(TransportationType transportationType) {
-        this.transportationType = transportationType;
-    }
+  public void setDestinationLocationId(Long destinationLocationId) {
+    this.destinationLocationId = destinationLocationId;
+  }
 
-    public Set<Integer> getOperatingDays() {
-        return operatingDays;
-    }
+  public TransportationType getTransportationType() {
+    return transportationType;
+  }
 
-    public void setOperatingDays(Set<Integer> operatingDays) {
-        this.operatingDays = operatingDays;
-    }
+  public void setTransportationType(TransportationType transportationType) {
+    this.transportationType = transportationType;
+  }
+
+  public Set<Integer> getOperatingDays() {
+    return operatingDays;
+  }
+
+  public void setOperatingDays(Set<Integer> operatingDays) {
+    this.operatingDays = operatingDays;
+  }
 }
